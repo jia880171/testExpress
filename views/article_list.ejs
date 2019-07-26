@@ -1,0 +1,65 @@
+ <!DOCTYPE html>
+ <html lang="">
+     <head>
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title> <%= gg %> </title>
+        
+ 
+         <!-- Bootstrap CSS -->
+         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+         <script>
+
+            function Edit(id){
+                window.location.href = "/articles/" + id + "/edit";
+            }
+
+         </script>
+
+     </head>    
+     <body style="background-color:#D9D9D9;">
+             
+        <h1>留言板列表</h1>
+        
+        <table style="width:100%">
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>register date</th>
+                <th>修改</th>
+                <th>刪除</th>
+            </tr>
+        <% for ( let i = 0 ; i < data.length ; i++){ %>
+            <tr>
+                <td>
+                    <%console.log('id: ', data[i].id);%>
+                    <%= data[i].id  %>
+                </td>
+                <td>
+                    <%console.log('title: ', data[i].title);%>
+                    <a href> <%= data[i].title  %> </a>
+                </td>
+                <td>
+                    <%console.log('time: ', data[i].timeStamp);%>
+                    <%= data[i].timeStamp  %>
+                </td>
+                <td>
+                    <input type = 'button' value = '修改' onclick = "Edit(<%= data[i].id %>);"/>
+                    <%console.log('id: ', data[i].id);%>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <% } %>
+        </table>
+        
+         <!-- jQuery must import before boostrap -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+         <!-- Bootstrap JavaScript -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     </body>
+ </html>
+ 
